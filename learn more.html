@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>about apple</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <style>
+            :root{
+                --bg: #eafbe0;
+                --card: #ffffffcc;
+                --accent: #3aa335;
+                --muted: #6b6b6b;
+            }
+            *{box-sizing:border-box}
+            body{
+                margin:0;padding:28px;min-height:100vh;background:linear-gradient(180deg,var(--bg), #d6f7c8);font-family:'Open Sans',system-ui,Arial,sans-serif;color:#0b2d13;display:flex;align-items:center;justify-content:center;
+            }
+            .card{
+                width:100%;max-width:880px;background:var(--card);border-radius:14px;padding:26px 28px;box-shadow:0 10px 30px rgba(5,60,15,0.08);backdrop-filter:blur(6px);
+            }
+            .header{font-size:20px;margin:0 0 16px 0;color:var(--accent);text-shadow:0 6px 18px rgba(58,163,53,0.08)}
+            h1{font-size:18px;margin:18px 0 8px}
+            h4{margin:0 0 12px 0;color:var(--muted);line-height:1.45}
+            h5{margin:10px 0 6px 0;font-weight:700}
+            p{margin-top:14px;color:var(--muted);line-height:1.5}
+            .qa{margin-top:12px;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fbfff9,#f0fff0);border:1px solid rgba(26,128,41,0.06)}
+            .footer
+            {margin-top:18px;font-size:13px;color:var(--muted);text-align:right}
+            @media (max-width:520px){.card{padding:18px}.header{font-size:18px}h1{font-size:16px}}
+            .password{
+            width:100%;
+            padding:8px;
+            border-radius:8px;
+            border:1px solid #ccc;
+            margin-top:8px;
+            font-size:14px;
+            }
+            .button {
+                width: 150px;
+                border-radius: 16px;
+                padding: 8px;
+                border: none;
+                cursor: pointer;
+                transition: box-shadow 0.7s, background-color 0.4s;
+            }
+            button:hover {
+                box-shadow: 0 0 50px 25px rgb(88, 255, 82);
+                background-color: rgb(188, 255, 180);
+                transition: box-shadow 0.7s, background-color 0.4s;
+            }
+            body:creepy-mode .button:hover {
+                box-shadow: 0 0 50px 25px red;
+                background-color: darkred;
+            }
+            /* Creepy mode styles */
+            body.creepy{ background:radial-gradient(circle at 10% 10%, #b32020 20%, #040202 60%);color:#ffb4b4}
+            body.creepy .card{background:rgba(10,6,6,0.6);box-shadow:0 20px 60px rgba(0,0,0,0.75);border-radius:14px;border:1px solid rgba(255,60,60,0.06)}
+            body.creepy .header{color:#ff6b6b;text-shadow:0 10px 30px rgba(255,90,90,0.08)}
+            body.creepy h1, body.creepy h4, body.creepy p{color:#ffdede}
+            body.creepy .qa{background:rgba(30,10,10,0.6);border:1px solid rgba(255,60,60,0.12)}
+            .creepy-result{margin-top:18px;padding:18px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,0,0,0.02));border:1px solid rgba(255,0,0,0.12);box-shadow:inset 0 0 30px rgba(255,0,0,0.03)}
+            .glitch{font-weight:800;color:#ffb3b3;position:relative}
+            .glitch::after,.glitch::before{content:attr(data-text);position:absolute;left:0;top:0;mix-blend-mode:screen;opacity:0.7}
+            .glitch::before{color:#ff2a2a;transform:translate(-2px,0);animation:glitch-anim-1 2s infinite}
+            .glitch::after{color:#0fff0f;transform:translate(2px,0);animation:glitch-anim-2 3s infinite}
+            @keyframes glitch-anim-1{0%{transform:translate(-1px,0)}20%{transform:translate(-3px,-1px)}40%{transform:translate(2px,1px)}60%{transform:translate(-2px,0)}80%{transform:translate(1px,-1px)}100%{transform:translate(0,0)}}
+            @keyframes glitch-anim-2{0%{transform:translate(1px,0)}25%{transform:translate(3px,1px)}50%{transform:translate(-2px,-1px)}75%{transform:translate(2px,0)}100%{transform:translate(0,0)}}
+            /* hide form controls when in creepy mode (useful after authorization) */
+            body.creepy .password, body.creepy .button{opacity:0;visibility:hidden;pointer-events:none;height:0;margin:0;padding:0}
+        </style>
+    </head>
+    <body>
+        <main class="card" role="main">
+            <h1 class="header">About ApplePicker.CO</h1>
+
+            <h1 class="who">Who are we?</h1>
+            <audio id="error" src="error.mp3"></audio>
+            <audio loop id="Why" src="why.mp3"></audio>
+            <h4>ApplePicker.co is a platform dedicated to providing "The Apple" to HOMELESS people in America.</h4>
+
+            <h1 class="pop">Why do we do this?</h1>
+            <h4>We believe that everyone deserves access to fresh and nutritious food, regardless of their circumstances. By providing apples to homeless individuals, we aim to make a positive impact on their health and well-being.</h4>
+            <h1 class="qoq">How can you help?</h1>
+            <h4>You can support our mission by donating apples, volunteering your time, or spreading the word about our cause. Every little bit helps! Plus you can help us pick which "The Apple" to give.</h4>
+
+            <div class="qa" aria-live="polite">
+                <h5>Q&A</h5>
+                <h5>Q: Where do the apples come from?</h5>
+                <h5>A: We source our apples from local farms and orchards that prioritize sustainable and ethical farming practices.</h5>
+                <h5>Q: How are the apples distributed?</h5>
+                <h5>A: We work with local shelters and outreach programs to ensure that the apples reach those who need them most.</h5>
+                <h5>Q: Can we donate other types of food?</h5>
+                <h5>A:NO!!!</h5>
+            </div>
+                <input class="password" type="password" aria-label="Type your question here" placeholder="you need to be authorized to see more"/>
+                <button onclick="validate()" type="submit" class="button" >Submit password</button>
+            <p>Thank you for learning more about ApplePicker.CO! Together, we can make a difference, one apple at a time.</p>
+
+            <div class="footer">&copy; ApplePicker.CO</div>
+            <div id="result"></div>
+        </main>
+        <script>
+            function validate() {
+                const passwordInput = document.querySelector('.password');
+                const resultDiv = document.getElementById('result');
+                const password = passwordInput.value;
+
+                if (password === 'theapple') {
+                    const whyAudio = document.getElementById("Why");
+                    whyAudio.volume = 0.5;
+                    try{ whyAudio.play(); }catch(e){}
+                    document.body.classList.add('creepy');
+                    passwordInput.value = '';
+                    resultDiv.innerHTML = '<div class="creepy-result">\n  <h1 class="glitch" data-text="Authorized Access">Authorized Access</h1>\n  <h4>EVERYTHING ABOVE IS FAKE</h4>\n  <p>We are not a real organization. In truth, we are a group of government officials conducting experiments with "The Apple" on the homeless population. Our findings show that "The Apple" can rapidly alter DNA. Most often, this results in immediate death, but occasionally, it transforms the homeless into a mass of animal forms. Why do we have a website for this you might be wondering. Well, the website is actually connected to "The Apple" every apple you choose comes out of "the Apple" mysteriously.</p>\n</div>';
+                    setTimeout(()=>{if(resultDiv.firstElementChild) resultDiv.firstElementChild.scrollIntoView({behavior:'smooth'});},120);
+                } else {
+                    const errorAudio = document.getElementById("error");
+                    errorAudio.play();
+                    resultDiv.innerHTML = '<h4>Unauthorized: Incorrect password.</h4>';
+                }
+            }
+        </script>
+    </body>
+</html>

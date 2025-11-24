@@ -1,0 +1,420 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Apple Picker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Linefont:wght@4..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
+    <style>
+        .button {
+            width: 250px;
+            border-radius: 16px;
+            padding: 8px;
+            box-shadow:
+             0 0 0 10px rgb(148, 255, 144),
+             0 0 0 15px rgb(108, 255, 63);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.4s, box-shadow 0.4s;
+            position: absolute;
+            margin-left: auto; 
+            margin-right: auto;
+            left:50%;
+            top:40%;
+            transform: translate(-50%, -50%);
+        }
+        .button:hover {
+            background-color: #d5ffd5;
+            box-shadow: 
+            0 0 50px 25px rgb(114, 255, 145);
+        }
+        .apG {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top:76%;
+        }
+        .Gap {
+            border-radius: 6px;
+            padding: 8px;
+            box-shadow: 
+            0 0 0 5px rgb(148, 255, 144),
+             0 0 0 10px rgb(108, 255, 63);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.4s, box-shadow 0.4s;
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            left:50%;
+            top:30%;
+            transform: translate(-50%, -50%);
+        }
+        .Gap:hover {
+            background-color: #d5ffd5;
+            box-shadow: 0 0 50px 25px rgb(114, 255, 145);
+        }
+        .Yap {
+            border-radius: 6px;
+            padding: 8px;
+            box-shadow:
+             0 0 0 5px rgb(148, 255, 144),
+             0 0 0 10px rgb(108, 255, 63);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.4s, box-shadow 0.4s;
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            left:40%;
+            top:30%;
+            transform: translate(-50%, -50%);
+        }
+        .Yap:hover {
+            background-color: #ffffe5;
+            box-shadow: 0 0 50px 25px rgb(255, 252, 88);
+        }
+        .Rap {
+            border-radius:6px;
+            padding: 8px;
+            box-shadow:
+            0 0 0 5px rgb(148, 255, 144),
+             0 0 0 10px rgb(108, 255, 63);
+
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.4s, box-shadow 0.4s;
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            left:60%;
+            top:30%;
+            transform: translate(-50%, -50%);
+        }
+        .Rap:hover {
+            background-color: #ffe5e5;
+            box-shadow: 0 0 50px 25px rgb(255, 90, 90);
+        }
+        .submitted{
+            display: none;
+        }
+        .creepyDog{
+            width:100%;
+            height:100%;
+            display: none;
+        }
+        .creepybutton{
+
+            border: none;
+            background-color: transparent;
+            transition: box-shadow 2s, background-color 2s;
+            cursor: not-allowed;
+            position: absolute;
+            left:4%;
+            top:10px;
+            color: rgba(0, 0, 0, 0.671);
+            font-size: small;
+            
+        }
+        .creepybutton:hover {
+            box-shadow: 0 0 275px 350px rgb(0, 0, 0);
+            background-color: rgb(0, 0, 0);
+            transition: box-shadow 0.7s, background-color 0.7s;
+            
+        }
+        .body{
+            margin:0;
+            padding:0;
+            overflow:hidden;
+            min-height: 100vh;
+            min-width: 100vw;
+            background-color: #D1FFBD;
+        }
+        .apG{
+            box-shadow: 0px 0px 50px 25px rgb(255, 255, 255);
+            border-radius: 60px;
+            border-color: white;
+        }
+        .apG:hover{
+            box-shadow:none;
+            transition: box-shadow 1s;
+        }
+        .main{
+            min-height: 100vh;
+            min-width: 100vw;
+        }
+        .quiz-Music{
+            position: absolute;
+            left:5%;
+            bottom: 5%;
+            border-radius: 32px;
+            border:none;
+            padding: 8px;
+            box-shadow: #66ff00 0px 0px 25px 10px;
+            background-color: #b8ff89;
+            cursor: pointer;
+            transition: box-shadow 0.4s;
+        }
+        .quiz-Music:hover{
+            box-shadow: #66ff00 0px 0px 50px 25px;
+            transition: box-shadow 0.4s;
+        }
+        .secretText{
+            display: none;
+            position: absolute;
+            left:50%;
+            top:45%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: black;
+            background: #fff5cd;
+            border-radius: 32px;
+            padding: 12px;
+            text-align: center;
+            width:90%;
+            box-shadow: 
+            0px 0px 0px 5px rgb(255, 0, 0),
+            0px 0px 0px 10px rgb(200, 0, 0);
+        }
+
+        .NextApple{
+            position: absolute;
+            left:85%;
+            bottom: 5%;
+            border-radius: 32px;
+            border:none;
+            padding: 8px;
+            box-shadow: #66ff00 0px 0px 25px 10px;
+            background-color: #b8ff89;
+            cursor: pointer;
+            transition: box-shadow 0.4s;
+            display: none;
+        }
+        .NextApple:hover{
+            box-shadow: #66ff00 0px 0px 50px 25px;
+            transition: box-shadow 0.4s;
+    
+        }
+        .title{
+            font-family: 'open sans', sans-serif;
+            text-align: center;
+            position: relative;
+            top:50px;
+            color: rgba(0, 0, 0, 0);
+            text-shadow: 0 0 20px rgba(0, 255, 42, 0.555);
+            transition: text-shadow 1s, color 1s;
+            cursor: default;
+        }
+        .title:hover{
+            color: rgba(0, 255, 42, 0.555);
+            text-shadow: none;
+            transition: text-shadow 1s, color 2s;
+        }
+        .learn{
+            position: absolute;
+            left:15%;
+            top:10px;
+            font-size: small;
+            color: rgba(0, 0, 0, 0.671);
+            cursor: pointer;
+        }
+    </style>
+    </head>
+    <body class="body" id="body">
+    <header>
+        <p  onclick="playclickSound()" id="learn" class="learn">? Learn More</p>
+        <p onclick="creepIMG()" id="creepybutton" class="creepybutton">Volunteer</p>
+    </header>
+        <h2 class="title">Every apple you choose is given to the HOMELESS!!!</h2>
+        <audio id="why" src="why.mp3"></audio>
+        <audio id="quizSubmitted" src="answer submitted.mp3"></audio>
+        <audio id="startingAudio" src="quiz-music.mp3" loop preload="metadata"></audio>
+        <audio id="creepyAudio" src="creepy-effect.mp3" preload="auto"></audio>
+        <audio id="clickSound" src="mouse click.mp3"></audio>
+        <h1 id="submitted" class="submitted">You have submitted your apple!!!</h1>
+        <button onclick="doSomething()" id="button" class="button">Submit Apple</button>
+        <img class="apG" src="greenApple.png" />
+        <button id="Rap" onclick="redApple()" class="Rap">Red</button>
+        <button id="Yap" onclick="yellowApple()" class="Yap">Yellow</button>
+        <button id="Gap" onclick="greenApple()" class="Gap">Green</button>
+        <button id="quiz-Music" class="quiz-Music">quiz-music</button>
+        <button onclick="nextApple()" id="NextApple" class="NextApple">Next apple</button>
+        <p class="secretText" id="secretText">In your rampage of eating, you accidentally eat the apples even though you were warned not to eat them. The next day, you feel strange? While figuring out the pain in your stomach, you turn into a disgusting and mutated blob of animals. You then realise you weren't supposed to give apples to the homeless. You were supposed to test them on what the apples will do to them. Decieved and lied to, you go into a corner and cry alone</p>
+        <br/>
+                <img id="Creep" class="creepyDog" src="creepyDog.png">
+            
+        <main>
+            <div id="main" class="main"></div>
+        </main>
+    </body>
+        <script>
+            function playclickSound() {
+                const clickSound = document.getElementById("clickSound");
+                const learn = document.querySelector(".learn");
+                herf = "learn more.html";
+                window.location.href = herf;
+                clickSound.play();
+            }
+
+        function nextApple() {
+            const clickSound = document.getElementById("clickSound");
+            clickSound.play();
+            const title = document.querySelector(".title");
+            const nextApple = document.getElementById("NextApple");
+            nextApple.style.display = "none";
+            const learn = document.querySelector(".learn");
+            const imgCreep = document.getElementById("Creep");
+            const s = document.querySelector(".submitted");
+            const b = document.querySelector(".button");
+            const g = document.querySelector(".Gap");
+            const y = document.querySelector(".Yap");
+            const r = document.querySelector(".Rap");
+            img = document.querySelector(".apG");
+            imgCreep.style.display = "none";
+            img.style.display = "block "; 
+            r.style.display = "block";
+            y.style.display = "block";
+            g.style.display = "block";
+            b.style.display = "block";
+            s.style.display = "none";
+            learn.style.display = "block";
+            creepybutton.style.display = "block";
+            body.style.backgroundColor = "#D1FFBD";
+            title.style.display = "block";
+            stopAudio = document.getElementById("creepyAudio");
+            stopAudio.pause();}
+
+        const del = document.querySelector(".main");
+        const startingAudio = document.getElementById("startingAudio");
+        const back = document.getElementById("body");
+        const quizMusic = document.getElementById("quiz-Music");
+        quizMusic.addEventListener("click", function() {
+            if (startingAudio.paused) {
+                startingAudio.play();
+                startingAudio.volume = 0.2;
+            } else {
+                startingAudio.pause();
+            }
+        });
+            const learn = document.querySelector(".learn");
+            const secretText = document.getElementById("secretText");
+            const quiZMusic = document.getElementById("quiz-Music");
+            const main = document.querySelector(".main");
+            const imgCreep = document.getElementById("Creep");
+            const creepybutton = document.getElementById("creepybutton");
+            const body = document.getElementById("body");
+            const whyAudio = document.getElementById("why");
+            const title = document.querySelector(".title");
+            const clickSound = document.getElementById("clickSound");
+            const audio = document.getElementById("startingAudio");
+            main.appendChild(imgCreep);
+            
+            creepybutton.addEventListener("click", () => {
+            imgCreep.src = "mukbang-food.gif";
+            imgCreep.style.display = "none";
+            clickSound.play();
+            console.log("clicked");
+            body.style.backgroundColor = "black";
+            imgCreep.style.display = "block";
+            creepybutton.style.display = "none";
+            quiZMusic.style.display = "none";
+            button = document.querySelector(".button");
+            green = document.querySelector(".Gap");
+            yellow = document.querySelector(".Yap");
+            red = document.querySelector(".Rap");
+            red.style.display = "none";
+            yellow.style.display = "none";
+            green.style.display = "none";
+            button.style.display = "none";
+            audio.muted = true;
+            whyAudio.play();
+            whyAudio.volume = 0.7;
+            secretText.style.display = "block";
+            title.style.display = "none";
+            learn.style.display = "none";
+
+
+        });
+
+
+        function doSomething() {
+            const learn = document.querySelector(".learn");
+            title.style.display = "none";
+            const nextApple = document.getElementById("NextApple");
+            nextApple.style.display = "block";
+            const imgCreep = document.getElementById("Creep");
+            submitted = document.querySelector(".submitted");
+            button = document.querySelector(".button");
+            green = document.querySelector(".Gap");
+            yellow = document.querySelector(".Yap");
+            red = document.querySelector(".Rap");
+            img = document.querySelector(".apG");
+            imgCreep.style.display = "none";
+            img.style.display = "none"; 
+            red.style.display = "none";
+            yellow.style.display = "none";
+            green.style.display = "none";
+            button.style.display = "none";
+            submitted.style.display = "block";
+            submitted.style.position = "absolute";
+            submitted.style.left = "50%";
+            submitted.style.top = "40%";
+            submitted.style.transform = "translate(-50%, -50%)";
+            submitted.style.fontSize = "100px";
+            submitted.style.fontFamily = "Roboto, sans-serif";
+            submitted.style.textShadow = "2px 2px 10px #90EE90";
+            submitted.style.color = "lightgreen";
+            creepybutton.style.display = "none";
+            body.style.backgroundColor = "#D1FFBD";
+            secretText.style.display = "none";
+            learn.style.display = "none";
+            stopAudio = document.getElementById("creepyAudio");
+            stopAudio.pause();
+                            confetti({
+                particleCount:2000,
+                spread: 10000,
+                origin: { y: 0.5}
+        })
+        const quizSubmitted = document.getElementById("quizSubmitted");
+        quizSubmitted.play();
+        }
+        
+
+        var appleChoice=document.querySelector(".apG");
+
+        function greenApple() 
+        {
+            const clickSound = document.getElementById("clickSound");
+            clickSound.play();
+            appleChoice.src="greenApple.png"
+}
+        function yellowApple() 
+        {
+            const clickSound = document.getElementById("clickSound");
+            clickSound.play();
+            appleChoice.src="yellowApple.png"
+
+        }
+        function redApple() 
+        {
+            const clickSound = document.getElementById("clickSound");
+            clickSound.play();
+            appleChoice.src="redApple.png"
+        }
+            
+        function creepIMG()
+        {
+        const button = document.getElementById("button");
+        var creepyAudio = document.getElementById("creepyAudio");
+        appleChoice.src="creepy apple (2).png"
+        appleChoice.style.boxShadow = "none"
+        creepyAudio.play();
+        creepyAudio.playbackRate = 1.5;
+        button.textContent = "Submit your muckbang";
+        }
+    </script>
+    
+    </body>
+</html>
