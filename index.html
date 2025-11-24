@@ -230,7 +230,7 @@
         <h2 class="title">Every apple you choose is given to the HOMELESS!!!</h2>
         <audio id="why" src="why.mp3"></audio>
         <audio id="quizSubmitted" src="answer submitted.mp3"></audio>
-        <audio id="startingAudio" src="quiz-music.mp3" loop preload="metadata"></audio>
+        <audio id="quiz-Music" src="quiz-music.mp3" loop preload="metadata"></audio>
         <audio id="creepyAudio" src="creepy-effect.mp3" preload="auto"></audio>
         <audio id="clickSound" src="mouse click.mp3"></audio>
         <h1 id="submitted" class="submitted">You have submitted your apple!!!</h1>
@@ -239,7 +239,7 @@
         <button id="Rap" onclick="redApple()" class="Rap">Red</button>
         <button id="Yap" onclick="yellowApple()" class="Yap">Yellow</button>
         <button id="Gap" onclick="greenApple()" class="Gap">Green</button>
-        <button id="quiz-Music" class="quiz-Music">quiz-music</button>
+        <button id="Music" class="quiz-Music">quiz-music</button>
         <button onclick="nextApple()" id="NextApple" class="NextApple">Next apple</button>
         <p class="secretText" id="secretText">In your rampage of eating, you accidentally eat the apples even though you were warned not to eat them. The next day, you feel strange? While figuring out the pain in your stomach, you turn into a disgusting and mutated blob of animals. You then realise you weren't supposed to give apples to the homeless. You were supposed to test them on what the apples will do to them. Decieved and lied to, you go into a corner and cry alone</p>
         <br/>
@@ -287,15 +287,15 @@
             stopAudio.pause();}
 
         const del = document.querySelector(".main");
-        const startingAudio = document.getElementById("startingAudio");
-        const back = document.getElementById("body");
         const quizMusic = document.getElementById("quiz-Music");
-        quizMusic.addEventListener("click", function() {
-            if (startingAudio.paused) {
-                startingAudio.play();
-                startingAudio.volume = 0.2;
+        const music = document.getElementById("Music");
+        const back = document.getElementById("body");
+        music.addEventListener("click", function() {
+            if (quizMusic.paused) {
+                quizMusic.play();
+                quizMusic.volume = 0.2;
             } else {
-                startingAudio.pause();
+                quizMusic.pause();
             }
         });
             const learn = document.querySelector(".learn");
