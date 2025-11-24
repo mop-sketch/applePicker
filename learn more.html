@@ -21,6 +21,9 @@
             .card{
                 width:100%;max-width:880px;background:var(--card);border-radius:14px;padding:26px 28px;box-shadow:0 10px 30px rgba(5,60,15,0.08);backdrop-filter:blur(6px);
             }
+            body::-webkit-scrollbar {
+                display: none;
+            }
             .header{font-size:20px;margin:0 0 16px 0;color:var(--accent);text-shadow:0 6px 18px rgba(58,163,53,0.08)}
             h1{font-size:18px;margin:18px 0 8px}
             h4{margin:0 0 12px 0;color:var(--muted);line-height:1.45}
@@ -47,8 +50,8 @@
                 transition: box-shadow 0.7s, background-color 0.4s;
             }
             button:hover {
-                box-shadow: 0 0 50px 25px rgb(88, 255, 82);
-                background-color: rgb(188, 255, 180);
+                box-shadow: 0 0 50px 25px rgb(255, 82, 82);
+                background-color: rgb(255, 180, 180);
                 transition: box-shadow 0.7s, background-color 0.4s;
             }
             body:creepy-mode .button:hover {
@@ -111,6 +114,7 @@
                 if (password === 'theapple') {
                     const whyAudio = document.getElementById("Why");
                     whyAudio.volume = 0.5;
+                    
                     try{ whyAudio.play(); }catch(e){}
                     document.body.classList.add('creepy');
                     passwordInput.value = '';

@@ -300,7 +300,7 @@
         });
             const learn = document.querySelector(".learn");
             const secretText = document.getElementById("secretText");
-            const quiZMusic = document.getElementById("quiz-Music");
+            const quiZMusic = document.getElementById("music");
             const main = document.querySelector(".main");
             const imgCreep = document.getElementById("Creep");
             const creepybutton = document.getElementById("creepybutton");
@@ -308,24 +308,25 @@
             const whyAudio = document.getElementById("why");
             const title = document.querySelector(".title");
             const clickSound = document.getElementById("clickSound");
-            const audio = document.getElementById("startingAudio");
+            const audio = document.getElementById("quiz-Music");
             main.appendChild(imgCreep);
             
             creepybutton.addEventListener("click", () => {
             imgCreep.src = "mukbang-food.gif";
-            imgCreep.style.display = "none";
             clickSound.play();
             console.log("clicked");
             body.style.backgroundColor = "black";
             imgCreep.style.display = "block";
             creepybutton.style.display = "none";
-            quiZMusic.style.display = "none";
+            learn.style.display = "none";
+            music.style.display = "none";
             button = document.querySelector(".button");
             green = document.querySelector(".Gap");
             yellow = document.querySelector(".Yap");
             red = document.querySelector(".Rap");
             red.style.display = "none";
             yellow.style.display = "none";
+            title.style.display = "none";
             green.style.display = "none";
             button.style.display = "none";
             audio.muted = true;
