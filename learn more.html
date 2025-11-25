@@ -58,6 +58,22 @@
                 box-shadow: 0 0 50px 25px red;
                 background-color: darkred;
             }
+            .experiments{
+                border-radius: 16px;
+                border: none;
+                cursor: pointer;
+                margin-top: 12px;
+                padding: 10px;
+                background:radial-gradient(circle at 10% 10%, #470606 50%, #040202 90%);
+                color:#ffb6b6;
+                transition: color 0.7s, box-shadow 1s, background-color 1s;
+            }
+            .experiments:hover {
+                box-shadow: 0 0 300px 300px rgb(0, 0, 0);
+                background: rgb(0, 0, 0);
+                color: rgb(0, 0, 0);
+                transition: color 0.2s, box-shadow 1s, background-color 1s;
+            }
             /* Creepy mode styles */
             body.creepy{ background:radial-gradient(circle at 10% 10%, #b32020 20%, #040202 60%);color:#ffb4b4}
             body.creepy .card{background:rgba(10,6,6,0.6);box-shadow:0 20px 60px rgba(0,0,0,0.75);border-radius:14px;border:1px solid rgba(255,60,60,0.06)}
@@ -106,6 +122,11 @@
             <div id="result"></div>
         </main>
         <script>
+            function showExperiments() {
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = '<div class="creepy-result">\n  <h1 class="glitch" data-text="Experiment log">Experiments log</h1>\n <p>Experiment 001: The subject received Apple (V20), resulting in a grotesque transformation into a feline mass. <p>\n<p>Experiment 042: The subject received Apple (V148), and the subject developed enormous mammalian tusks over the course of eight days, their physical form becoming increasingly unrecognizable.<p>\n<p>Experiment 091: The subject was given Apple (VB909). Contrary to prior outcomes, the subject neither perished nor mutated immediately. Instead, they exhibited extreme hostility within seconds, their bones elongating in unnatural ways. Death ensued precisely seven seconds later.</p>\n<img style="border-radius:16px" src="Experiment 091.png">\n<p style="font-size:small">EXPERIMENT 091 Right before death<p></div>';
+                setTimeout(()=>{if(resultDiv.firstElementChild) resultDiv.firstElementChild.scrollIntoView({behavior:'smooth'});},120);
+            }
             function validate() {
                 const passwordInput = document.querySelector('.password');
                 const resultDiv = document.getElementById('result');
@@ -118,7 +139,7 @@
                     try{ whyAudio.play(); }catch(e){}
                     document.body.classList.add('creepy');
                     passwordInput.value = '';
-                    resultDiv.innerHTML = '<div class="creepy-result">\n  <h1 class="glitch" data-text="Authorized Access">Authorized Access</h1>\n  <h4>EVERYTHING ABOVE IS FAKE</h4>\n  <p>We are not a real organization. In truth, we are a group of government officials conducting experiments with "The Apple" on the homeless population. Our findings show that "The Apple" can rapidly alter DNA. Most often, this results in immediate death, but occasionally, it transforms the homeless into a mass of animal forms. Why do we have a website for this you might be wondering. Well, the website is actually connected to "The Apple" every apple you choose comes out of "the Apple" mysteriusly.</p>\n</div>\n<button>experiments</button>';
+                    resultDiv.innerHTML = '<div class="creepy-result">\n  <h1 class="glitch" data-text="Authorized Access">Authorized Access</h1>\n  <h4>EVERYTHING ABOVE IS FAKE</h4>\n  <p>We are not a real organization. In truth, we are a group of government officials conducting experiments with "The Apple" on the homeless population. Our findings show that "The Apple" can rapidly alter DNA. Most often, this results in immediate death, but occasionally, it transforms the homeless into a mass of animal forms. Why do we have a website for this you might be wondering. Well, the website is actually connected to "The Apple" every apple you choose comes out of "the Apple" mysteriously.</p>\n</div>\n<button onclick="showExperiments()" class="experiments" >successful experiments</button>';
                     setTimeout(()=>{if(resultDiv.firstElementChild) resultDiv.firstElementChild.scrollIntoView({behavior:'smooth'});},120);
                 } else {
                     const errorAudio = document.getElementById("error");
